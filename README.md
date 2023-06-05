@@ -1,4 +1,4 @@
-# Kittygram - social network for sharing cat photos. Yandex.Practicum educational project.
+# Kittygram is a social network for sharing photos of beloved pets. It is a fully functional project consisting of a Django backend application and a React frontend application.
 
 ## Project Description
 Users can register, upload photos of their cats with a brief description, and view photos of other users' cats. The main goal is to learn how to deploy the project to a server.
@@ -22,7 +22,6 @@ Users can register, upload photos of their cats with a brief description, and vi
 # Deploying the Project to a Remote Server
 
 ## Connecting the Server to Your GitHub Account
-- Git should be installed on the server. To check, run `sudo apt update` and `git --version`.
 - If Git is not installed, install it with the command `sudo apt install git`.
 - Generate SSH key pair on the server using `ssh-keygen` command.
 - Save the public key to your GitHub account. Display the key in the terminal using `cat .ssh/id_rsa.pub`. Copy the key from `ssh-rsa` to the end. Add this key to your GitHub account.
@@ -47,7 +46,7 @@ Users can register, upload photos of their cats with a brief description, and vi
 ## Installing and Running Gunicorn
 - Activate the project's virtual environment and install the Gunicorn package: `pip install gunicorn==20.1.0`
 - Open the project's `settings.py` file and set the `DEBUG` constant to `False`: `DEBUG = False`
-- Create a `gunicorn.service` file in the `/etc/systemd/system/` directory using a text editor (`sudo nano /etc/systemd/system/gunicorn.service`) with the following content (without comments):
+- Create a `gunicorn.service` file in the `/etc/systemd/system/` directory using a text editor (`sudo nano /etc/systemd/system/gunicorn_kittygram.service`) with the following content (without comments):
 
   ```
   [Unit]
@@ -116,19 +115,31 @@ Users can register, upload photos of their cats with a brief description, and vi
 
 - Save the changes, check the configuration for correctness with `sudo nginx -t`, and reload the Nginx configuration: `sudo systemctl reload nginx`
 
-### Building and Configuring Backend Static Files
+### Building and Configuring Backend Static Files and Media Files
 - In the `settings.py` file of your backend project, set the following settings:
 
   ```
+  MEDIA_URL = '/media/'
+  MEDIA_ROOT = os.path.join(BASE_DIR, 'var', 'www', 'kittygram', 'media')
   STATIC_URL = 'static_backend'
   STATIC_ROOT = BASE_DIR / 'static_backend'
   ```
 
 - Activate the virtual environment, navigate to the directory containing the `manage.py` file, and run the command `python manage.py collectstatic`.
 - A `static_backend/` directory will be created in the `<your_project>/backend/` directory.
-- Copy the `static_backend/` directory
-
- to `/var/www/<your_project_name>/`.
+- Create directory `/var/www/kittygram/media`
+- Use this command:
+  ```
+  sudo chown -R <user_name> /var/www/kittygram/media/
+  ```
+- In default file add:
+```
+    location /media/ {
+    alias /var/www/kittygram/media/;
+    }
+```
+- Copy the `static_backend/` directory to `/var/www/<your_project_name>/`.
+- Copy the `/var/www/kittygram/media` directory to `/var/www/<your_project_name>/`.
 
 ## Adding Domain Name to Django Settings
 - In the `settings.py` file, add your domain name to the `ALLOWED_HOSTS` list:
