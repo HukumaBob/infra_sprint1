@@ -102,7 +102,7 @@ Users can register, upload photos of their cats with a brief description, and vi
       }
 
       location /admin/ {
-          proxy_pass http://127.0.0.1:8000;
+          proxy_pass http://127.0.0.1:8080;
       }
 
       location / {
