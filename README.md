@@ -1,4 +1,4 @@
-# Kittygram is a social network for sharing photos of beloved pets. It is a fully functional project consisting of a Django backend application and a React frontend application.
+# Kittygram is a social network for sharing photos of your pets. It is a fully functional project consisting of a Django backend application and a React frontend application.
 
 ## Project Description
 Users can register, upload photos of their cats with a brief description, and view photos of other users' cats. The main goal is to learn how to deploy the project to a server.
