@@ -1,5 +1,4 @@
 server {
-#    server_name 158.160.14.106 hukumabob.ddns.net;
     server_name hukumabob.ddns.net;
 
     location /api/ {
@@ -33,7 +32,6 @@ server {
 
 
     listen 80;
-#    server_name 158.160.14.106 hukumabob.ddns.net;
     server_name hukumabob.ddns.net;
     return 404; # managed by Certbot
 
