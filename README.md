@@ -38,7 +38,7 @@ Users can register, upload photos of their cats with a brief description, and vi
 ## Running the Frontend on the Server
 - Install Node.js on the server with the following commands:
   ```
-  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
   sudo apt-get install -y nodejs
   ```
 - Install the frontend dependencies. From the `<your_project>/frontend/` directory, run `npm i`.
