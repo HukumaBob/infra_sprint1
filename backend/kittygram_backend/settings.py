@@ -95,8 +95,6 @@ USE_TZ = True
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'var', 'www', 'kittygram', 'media')
-#MEDIA_URL = '/media/'
-#MEDIA_ROOT = '/var/www/kittygram/media/'
 
 STATIC_URL = 'static_backend'
 STATIC_ROOT = BASE_DIR / 'static_backend'
