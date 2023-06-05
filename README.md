@@ -54,7 +54,7 @@ Users can register, upload photos of their cats with a brief description, and vi
   After=network.target
 
   [Service]
-  User=yc-user
+  User=<username>
   WorkingDirectory=/home/<your_system_username>/<your_project_name>/backend/
   ExecStart=/home/<your_system_username>/<your_project_name>/venv/bin/gunicorn --bind 0.0.0.0:8080 kittygram_backend.wsgi
 
