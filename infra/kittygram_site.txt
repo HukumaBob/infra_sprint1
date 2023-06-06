@@ -1,5 +1,0 @@
-IP: 158.160.14.106;
-name_taski: https://hukumabob.ddns.net;
-name_kittygram: https://kittybob.ddns.net;
-login: yc-user;
-password: SJvtqlSpW79%;
